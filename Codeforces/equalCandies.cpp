@@ -25,7 +25,7 @@ int main()
 }
 -------------------------------------------------------------------------------*/
 
-/* Algorithm #3: Vector Method (Time: 30ms, Memory: 0kb) ---------------------
+/* Algorithm #2: Vector Method (Time: 30ms, Memory: 0kb) --------------------- */
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -55,4 +55,3 @@ int main()
         cout << final << endl;
     }
 }
-------------------------------------------------------------------------------*/
