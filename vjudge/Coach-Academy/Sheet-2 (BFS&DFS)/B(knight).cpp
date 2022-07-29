@@ -27,7 +27,7 @@ void bfs(int x,int y)
             newNode.second = node.second + dy[i];
             if (newNode.first < 0 || newNode.first > 7 || newNode.second < 0 || newNode.second > 7)
                 continue;
-            else if ( dist[node.first][node.second] + 1 < dist[newNode.first][newNode.second] )
+            if ( dist[node.first][node.second] + 1 < dist[newNode.first][newNode.second] )
             {
                 dist[newNode.first][newNode.second] = dist[node.first][node.second] + 1;
                 q.push(newNode);
@@ -38,12 +38,13 @@ void bfs(int x,int y)
 
 int main()
 {
+    fff;
     string pos1,pos2;
     while (cin>>pos1>>pos2)
     {
         int colFR = pos1[0] - 'a', rowFR = pos1[1] - '1';
         int colTO = pos2[0] - 'a', rowTO = pos2[1] - '1';
-        bfs(colFR, rowFR);
+        bfs(rowFR, colFR);
         cout << "To get from " << pos1 << " to " << pos2 << " takes " << dist[rowTO][colTO] << " knight moves.";
         cout << endl;
     }
