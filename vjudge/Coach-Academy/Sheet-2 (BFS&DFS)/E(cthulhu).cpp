@@ -8,7 +8,6 @@ using namespace std;
 const int N = 1e2+10, oo = 1e9;
 vector<int> adj[N];
 bool vis[N];
-bool cthulhuRules;
 int children[N];
 void dfs(int node)
 {
