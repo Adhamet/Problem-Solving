@@ -17,7 +17,7 @@ void bfs(int x, int y)
     q.push({x,y});
     if(valid[{x,y}])
         dist[{x,y}] = 0;
-    while(q.size())
+    while( !(q.empty()) )
     {
         pair<int,int> node = q.front();
         q.pop();
