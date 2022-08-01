@@ -1,3 +1,6 @@
+// Couldn't solve it
+// The input/output is so annoying!!!
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,7 +17,7 @@ int dx[] = {0, 1, 1, 1, 0, -1, -1, -1};
 int dy[] = {-1, -1, 0, 1, 1, 1, 0, -1};
 void bfs(int x, int y)
 {
-    int cnt=0;
+    int cnt=1;
     vis[x][y]=1;
     dist[x][y]=0;
     queue<pair<int,int>> q;
@@ -57,13 +60,16 @@ int main()
                 vis[i][j] = 0;
             }
         string s;
+        cin >> s;
+
         int row = 0;
-        // Cant take input;
-        while(cin >> s)  
-        {   
+
+        while(s != "")  
+        {
             for(int c = 0; c < s.length(); c++)
                 if(s[c] == '1')
                     grid[row][c] = 1;
+            cin >> s;
             row++;
         }
         for(int i = 0; i < 25; i++)
