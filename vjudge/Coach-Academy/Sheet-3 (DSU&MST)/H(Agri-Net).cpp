@@ -56,8 +56,9 @@ int main()
                 ans += c;
                 connect(x,y);
             }
-        }
+        } 
         cout << ans << endl;
     }
+    
     return 0;
 }

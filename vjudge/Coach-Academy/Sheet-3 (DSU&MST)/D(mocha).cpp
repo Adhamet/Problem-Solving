@@ -10,23 +10,23 @@ using namespace std;
 const int N = 1e3+10, oo = 1e9;
 int n;
 
-int findParent(int u, ll par[])
+int findParent(int u)
 {
     if (par[u] == u)
         return u;
-    return par[u] = findParent(par[u], par);
+    return findParent(par[u]);
 }
-void connect(int u, int v, ll par[])
+void connect(int u, int v)
 {
-    u = findParent(u, par);
-    v = findParent(v, par);
+    u = findParent(u);
+    v = findParent(v);
     if ( u == v )
         return;
     par[u] = v;
 }
-bool isConn(int u, int v, ll par[])
+bool isConn(int u, int v)
 {
-    return (findParent(u, par) == findParent(v, par));
+    return (findParent(u) == findParent(v));
 }
 
 int main()
@@ -63,7 +63,7 @@ int main()
             if ( n == mMocha+1 || n == mDiana+1 )
                 break;
             else
-                if( i!=j && !isConn(i,j,parMocha) && !isConn(i,j,parDiana))
+                if( i!=j && !isConn(i,j,parMocha) && !isConn(i,j,parDiana) )
                 {
                     connect(i,j,parMocha);
                     connect(i,j,parDiana);
