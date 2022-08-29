@@ -6,17 +6,37 @@ using namespace std;
 #define F first
 #define S second
 #define intPair vector<int,int>
-const ll N = 2e5+10, oo = 1e18+7;
-ll n,m,dist[N];
-vector<pair<int, pair<ll,ll>>> g[N];
+const ll N = 1e5+10, oo = 1e18+7;
+int n,m,k;
+ll dist[N];  
+vector<pair<int, pair<ll,ll>>> adj[N];
 
-void Dijkstra()
+void Dijkstra(ll wisdom)
 {
     for(int i = 0; i < n; i++)
-        dist[i] = oo;
+        dist[i] = 1e9;
     dist[1] = 0;
-    priority_queue< pair</**/ pair<ll,ll>, pair< ll,int> /**/> > pq;
+    priority_queue< pair<ll, int> > pq;
+    pq.push({0,1});
 
+    while(!pq.empty()) {
+        ll currNode = pq.top().S, cost = -pq.top().F;
+        pq.pop();
+
+        if(dist[currNode] < cost) continue;
+        if(currNode == n) return;
+        for(auto child: adj[currNode])
+        {
+            ll c = child.second.first, wis = child.second.second;
+            int next = child.first;
+
+            if(wis <= wisdom && dist[next] > dist[currNode] + c)
+            {
+                dist[next] = dist[currNode] + c;
+                pq.push({-dist[next], next});
+            } 
+        } 
+    }
 }
 
 
@@ -26,25 +46,35 @@ int main()
     cin >> t;
     while(t--)
     {
-        int k;
         cin >> n >> m >> k;
         for(int i=0; i < n; i++)
-        {
-            g[N].clear();
-        }
+            adj[i].clear();
 
         for(int i=0; i < m; i++)
         {
-            int u,v,w,c;
-            wisdom[u].push_back({v,w});
-            wisdom[v].push_back({u,w});
-            cost[u].push_back({v,c});
-            cost[v].push_back({u,c});
+            int u,v,c,w;
+            cin >> u >> v >> c >> w;
+            u--,v--;
+            adj[u].push_back( {v,{c,w}} );
+            adj[v].push_back( {u,{c,w}} );
         }
-        Dijkstra();
-
-        if(dist[n-1] == oo)
-            cout << -1 << '\n';
-        else cout << dist[n-1] << '\n';
+        cout << "TEST NOMBER TWO";
+        int start = 0, end = 1e9, mid , answer = -1;
+        while(start <= n)
+        {
+            mid = (start+end)>>1;
+            Dijkstra(mid);
+            "TEST NOMBER SREE";
+            if(dist[n] < k)
+            {
+                answer = mid;
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        cout << answer << '\n';
     }
 }
