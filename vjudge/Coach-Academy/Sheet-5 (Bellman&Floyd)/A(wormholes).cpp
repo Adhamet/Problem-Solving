@@ -1,5 +1,4 @@
-
-/* #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long
@@ -54,52 +53,4 @@ int main()
             cout << "not ";
         cout << "possible\n";
     }
-} */
-
-
-#include <bits/stdc++.h>
-using namespace std;
-
-#define ll long long
-#define fff ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-#define F first
-#define S second
-#define intPair pair<int,int>
-const int N = 1e3+10, oo = 1e9+7;
-
-
-int main()
-{
-    int T;
-    cin >> T;
-    while(T--)
-    {
-        int dist[N][N];
-        int n,m;
-        bool negCycle=false;
-        cin >> n >> m;
-
-        for(int i = 0; i<n; i++)
-            for(int j = 0; i<n; i++)
-                dist[i][j] = oo;
-        for(int i = 0; i < m; i++)
-        {
-            int u,v,w;
-            cin >> u >> v >> w;
-            dist[u][v] = w;
-        }
-        for(int k = 0; k < n; k++)
-            for(int i = 0; i < n; i++)
-                for(int j = 0; j < n; j++)
-                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
-        for(int i = 0; i < n; i++)
-            if(dist[i][i] < 0)
-            {
-                negCycle=true;
-                break;
-            }
-        if(negCycle) cout << "possible\n";
-        else cout << "not possible\n";
-    }
-    return 0;
 }
