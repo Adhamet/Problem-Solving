@@ -46,20 +46,20 @@ int main()
     for(int i = 0; i < str1.size(); i++)
     {
         int u = str1[i] - 'a', v = str2[i] - 'a';
-        int convert = -1, smallestVal = oo;
+        int converti = -1, smallestVal = oo;
         for(int j = 0; j < 26; j++)
             if ( dist[u][j] + dist[v][j] < smallestVal )
             {
                 smallestVal = dist[u][j] + dist[v][j];
-                convert = j;
+                converti = j;
             }   
-        if ( smallestVal == -1 )
+        if ( converti == -1 )
         {
             cout << "-1\n";
             return 0;
         }
         sum += smallestVal;
-        str1[i] = 'a' + convert; 
+        str1[i] = 'a' + converti; 
     }
     cout << sum << '\n' << str1 << '\n';
 }
