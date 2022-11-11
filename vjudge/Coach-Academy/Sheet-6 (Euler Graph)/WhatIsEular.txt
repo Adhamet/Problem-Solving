@@ -1,0 +1,12 @@
+An degree is when a node is going to a node so  U -> V;
+
+an in-degree is the V having an edge going into it from U, and so an out-degree is the U having an edge out to V;
+
+Rules of what makes an Euler Graph if it's un-directed:
+(1) Degrees are even;
+(2) Connected;
+
+Rules of what makes an Euler Graph if it's directed:
+(1) For each node, it's in-degrees must be = out-degrees;
+
+special case: if there's only one node, it's an Euler graph, but it won't happen.
