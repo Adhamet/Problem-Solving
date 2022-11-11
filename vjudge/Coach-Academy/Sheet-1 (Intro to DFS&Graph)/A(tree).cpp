@@ -16,7 +16,7 @@ void dfs(int node)
             dfs(child);
 }
 
-// Checkinc cyclicity;
+// Checking cyclicity;
 bool vis2[N];
 bool cyclic = false;
 void dfs2(int node, int parent)
