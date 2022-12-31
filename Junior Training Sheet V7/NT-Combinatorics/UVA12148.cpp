@@ -35,16 +35,16 @@ void solve(int records)
             {
                 bool isNext = (prevM == 1 && prevD == 31);
                 isNext = isNext or (not isLeapYear(prevY) and prevM == 2 and prevD == 28);
-				        isNext = isNext or (isLeapYear(prevY) and prevM == 2 and prevD == 29);
-				        isNext = isNext or (prevM == 3 and prevD == 31);
-				        isNext = isNext or (prevM == 4 and prevD == 30);
-				        isNext = isNext or (prevM == 5 and prevD == 31);
-				        isNext = isNext or (prevM == 6 and prevD == 30);
-				        isNext = isNext or (prevM == 7 and prevD == 31);
-				        isNext = isNext or (prevM == 8 and prevD == 31);
-				        isNext = isNext or (prevM == 9 and prevD == 30);
-				        isNext = isNext or (prevM == 10 and prevD == 31);
-				        isNext = isNext or (prevM == 11 and prevD == 30);
+		        isNext = isNext or (isLeapYear(prevY) and prevM == 2 and prevD == 29);
+		        isNext = isNext or (prevM == 3 and prevD == 31);
+			    isNext = isNext or (prevM == 4 and prevD == 30);
+		        isNext = isNext or (prevM == 5 and prevD == 31);
+			    isNext = isNext or (prevM == 6 and prevD == 30);
+		        isNext = isNext or (prevM == 7 and prevD == 31);
+		        isNext = isNext or (prevM == 8 and prevD == 31);
+		        isNext = isNext or (prevM == 9 and prevD == 30);
+			    isNext = isNext or (prevM == 10 and prevD == 31);
+			    isNext = isNext or (prevM == 11 and prevD == 30);
 
 				        if (isNext)
 				        {
