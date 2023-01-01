@@ -46,11 +46,11 @@ void solve(int records)
 			    isNext = isNext or (prevM == 10 and prevD == 31);
 			    isNext = isNext or (prevM == 11 and prevD == 30);
 
-				        if (isNext)
-				        {
-					          cons++;
-					          tConsumption+=c - prevC;
-				        }
+				if (isNext)
+				{
+					    cons++;
+					    tConsumption+=c - prevC;
+				}
             }
         }
         prevD = d;
