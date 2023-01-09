@@ -8,54 +8,58 @@ using namespace std;
 #define intPair pair<int,int>
 #define llPair pair<ll,ll>
 #define ldPair pair<lld,lld>
-#define F first
-#define S second
-#define el '\n'
-
-const int N = 100, oo = 1e9+5;
-
-vector<int> parent;
-vector<int> vis;
-int findparent(int u)
-{
-    if(!vis[u])
-        vis[u] = 1;
-    if (parent[u] == 0)
-        return u;
-    return findparent(parent[u]);
-}  
-
-int main()
-{
-    /* #ifndef ONLINE_JUDGE
-	    freopen("test.txt", "rt", stdin);
-    #endif */
-
-    //adhamet;
-
-    int n,s,wishes,son;
-    cin >> n >> s;
-    parent = vector<int>(n);
-    vis = vector<int>(n);
-    fill(parent.begin(), parent.end(), 0);
-
-    for(int i = 1; i <= s; i++)
-    {
-        cin >> wishes;
-        for(int j = 1; j <= wishes; j++)
-        {
-            cin >> son;
-            if(parent[son] != 0)
-                son = findparent(son);
-            parent[son]=i;
-        }
-    }
+ 
+int n, s, wishes, pos, a;
+vector<vector<int> > adj;
+bool vis[100074];
+vector<int> result;
+int parent[100074];
+ 
+void dfs(int student) {
+	vis[student] = true;
+	for (int i = 0; i < (int) adj[student].size(); i++) {
+		int child = adj[student][i];
+		if (!vis[child])
+			dfs(child);
+	}
+	result.push_back(student);
+}
+ 
+int main() {
+ 
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+#endif
     
-    for(int i = 0; i < n; i++) if(!vis[i] && parent[son] != i)
-        parent[i] = parent[son];
-
-    for(int i = 1; i <= n; i++)
-        cout << parent[i] << el;
-
-    return 0;
+    adhamet;
+    
+	scanf("%d%d", &n, &s);
+ 
+	adj.resize(n + 1);
+ 
+	for (int i = 1; i <= s; i++) {
+		scanf("%d", &wishes);
+		for (int j = 0; j < wishes; j++) {
+			scanf("%d", &a);
+			adj[i].push_back(a);
+		}
+	}
+ 
+	for (int i = 1; i <= n; i++) {
+		if (!vis[i])
+			dfs(i);
+	}
+ 
+	pos = 0;
+	for (int i = n - 1; i >= 0; i--) {
+		int Student = result[i];
+		parent[Student] = pos;
+		pos = Student;
+	}
+ 
+	for (int i = 1; i <= n; i++) {
+		printf("%d\n", parent[i]);
+	}
+ 
+	return 0;
 }
