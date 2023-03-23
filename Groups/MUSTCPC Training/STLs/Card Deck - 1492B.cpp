@@ -11,19 +11,39 @@ using namespace std;
 #define S second
 #define el '\n'
  
-void solve(int &n, int &iR, int arr[], int res[])
+void solve()
 {
-    int maxI = 0;
+    int n,x;
+    cin >> n;
+    stack<int> maxPts;
+    deque<int> result;
+    int arr[n];
+
+    int mx = INT_MIN;
     for(int i = 0; i < n; i++)
     {
-        if(arr[maxI] < arr[i]) maxI = i;
+        cin >> arr[i];
+        if( mx < arr[i] ) {
+            mx = arr[i];
+            maxPts.push(mx);
+        }
     }
-    
-    int toBeMvd = n-maxI;
-    n = maxI;
-    for(int i = iR; i < iR+toBeMvd; i++, maxI++)
-        res[i] = arr[maxI];
-    iR+=toBeMvd;
+
+    for(int i = n-1; i >= 0; i--)
+    {
+        if(arr[i] == maxPts.top())
+        {
+            maxPts.pop();
+            result.push_front(arr[i]);
+            while(!result.empty())
+            {
+                cout << result.front() << " ";
+                result.pop_front();
+            }
+        }
+        else { result.push_front(arr[i]); }
+    }
+    cout << el;
 }
 
 int main()
@@ -33,18 +53,7 @@ int main()
     int T;
     cin >> T;
     while(T--) {
-        int n;
-        cin >> n;
-        int arr[n],result[n], iResult = 0;
-
-        for(int i = 0; i < n; i++)
-            cin >> arr[i];
-        while(n)
-            solve(n, iResult, arr, result);
-            
-        for(int i = 0; i < iResult; i++)
-            cout << result[i] << " ";
-        cout << el;
+        solve();
     }
  
     return 0;
