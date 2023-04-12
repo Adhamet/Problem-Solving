@@ -11,7 +11,7 @@ int main()
     adhamettt
 
     ll n;
-    
+    cin >> n;
     if(n % 2 == 0) cout << n/2 << el;
     else cout << (n+1)/-2 << el;
 

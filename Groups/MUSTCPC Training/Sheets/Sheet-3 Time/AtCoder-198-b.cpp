@@ -6,33 +6,25 @@ using namespace std;
 #define ll long long
 #define el '\n'
 
-bool isPali(string str)
-{
-    int s = str.size();
-    for(int i = 0; i < s; i++)   
-        if(str[i] != str[s-(i+1)]) return false;
-    return true;
-}
-
 int main()
 {
     adhamet
 
-    string n, N;
-    cin >> n;
-    N = n;
-
-    if(isPali(n)) 
-        return cout << "Yes", 0;
-    
-    while(n[n.size()-1] == '0')
+    string s;
+    cin >> s;
+    while(s.back() == '0')
     {
-        N = '0'+N;
-        n.pop_back();
+        s.pop_back();
     }
-
-    if(isPali(N)) cout << "Yes";
-    else cout << "No";
-
+    string s2 = s;
+    reverse(s2.begin(), s2.begin());
+    if(s2 == s)
+    {
+        cout << "Yes";
+    }
+    else
+    {
+        cout << "No";
+    }
     return 0;
 }

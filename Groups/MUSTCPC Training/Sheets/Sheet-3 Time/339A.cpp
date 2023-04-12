@@ -12,18 +12,19 @@ int main()
 
     string s;
     cin >> s;
-    priority_queue<int, vector<int>, greater<>> pq;
-
-    for(int i = 0; i < s.size(); i++)
+    vector<int> vec;
+    int len = s.size();
+    for(int i = 0; i < len; i++)
     {
-        if(s[i] != '+') pq.push(s[i] - 48);
+        if(s[i] != '+') vec.push_back(s[i] - '0');
     }
 
-    while(!pq.empty())
+    sort(vec.begin(), vec.end());
+    len = vec.size();
+    for(int i = 0; i < len; i++)
     {
-        cout << pq.top();
-        pq.pop();
-        if(pq.size() != 0) cout << "+";
+        cout << vec[i];
+        if(i != len-1) cout << "+";
     }
 
     return 0;
