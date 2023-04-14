@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
  
 using namespace std;
-#define adhamet ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define adhamett ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 #define ll long long
 #define lld long long double
 #define intPair pair<int,int>
@@ -16,7 +16,7 @@ const int N = 1e6;
 int prefix[N]{0};
 int main()
 {
-    adhamet
+    adhamett
     
     int q;
     string s;
