@@ -12,8 +12,6 @@ using namespace std;
 #define S second
 #define el '\n'
 
-const int N = 1e6;
-int prefix[N]{0};
 int main()
 {
     adhamett
@@ -23,20 +21,19 @@ int main()
     cin >> s >> q;
 
     int len = s.size();
-    for(int i = 1; i < len; i++) if(s[i] == s[i-1])
-            prefix[i]++;
-    
+    int arr[len]{0};
     for(int i = 1; i < len; i++) {
-            prefix[i] += prefix[i-1];
-            cout << prefix[i] << " ";
+        if(s[i] == s[i-1])
+            arr[i]++;
+        arr[i] += arr[i-1];
     }
-    cout << el;
+
     while(q--)
     {
         int l,r;
         cin >> l >> r;
 
-        cout << prefix[--r] - prefix[--l] << el;
+        cout << arr[--r] - arr[--l] << el;
     }
 
     return 0;
