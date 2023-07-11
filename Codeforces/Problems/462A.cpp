@@ -11,13 +11,18 @@ using namespace std;
 #define S second
 #define el '\n'
 
-int solve()
+int main()
 {
+    adhamet
+    
     int n, k;
     cin >> n;
     
     char arr[n+2][n+2];
-    for(int i = 1; i <= n; i++) cin >> arr[i]+1;
+    for(int i = 1; i <= n; i++) 
+        for(int j = 1; j <= n; j++)
+            cin >> arr[i][j];
+
     for(int i = 1; i <= n; i++)
         for(int j = 1; j <= n; j++)
         {
@@ -26,20 +31,13 @@ int solve()
             if (arr[i][j-1]=='o') k++;
             if (arr[i+1][j]=='o') k++;
             if (arr[i-1][j]=='o') k++;
-            if (k % 2) return cout << "NO", 0;
+            if (k % 2 == 0 || k == 0) continue;
+			else {
+				cout << "NO";
+				return 0;
+			}
         }
     
-    return cout << "YES", 0;
-}
-
-int main()
-{
-    adhamet
-    
-    int t = 1;
-    //t = 4;
-    while(t--) {
-        solve();
-    }
+    cout << "YES";
     return 0;
 }
