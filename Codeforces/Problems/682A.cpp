@@ -8,19 +8,6 @@ using namespace std;
 #define llPair pair<ll,ll>
 #define ldPair pair<lld,lld>
 #define el '\n'
-
-void solve()
-{
-    ll m,n,ans;
-
-    while(cin >> m >> n)
-    {
-        ans = 0;
-
-        for(int i = 1; i<=m; i++) { ans += (n + (i % 5)) / 5; }
-        cout << ans << el;
-    }
-}
  
 int main() 
 {
@@ -32,7 +19,11 @@ int main()
     
     adhamet;
     
-    solve();
+    ll n,m,ans;
+    cin >> n >> m;
+    ans = 0;
+    for(int i = 1; i<=n; i++) { ans += (m + (i % 5)) / 5; }
+    cout << ans << el;
  
 	return 0;
 }
