@@ -15,22 +15,13 @@ int main()
 #endif */
     adhamet
     
-	int n,k;
-	cin >> n >> k;
-
-	n = (n*2) + 1;
-	vector<int> vec(n);
-
-	for(int i = 0; i < n; i++) cin >> vec[i];
-
-	for(int i = 0; i < n; i++)
-	{
-		if ( k != 0 && vec[i] > vec[i-1]+1 && vec[i] > vec[i+1]+1) {
-			vec[i]--;
-			k--;
-		}
-		cout << vec[i] << " ";
-	}
+	string s;
+    cin >> s;
+    int i = 0;
+    if (s[0] == '9') i = 1;
+    for(i; i < s.size() ; i++) if ( s[i] > '4' ) 
+            s[i] = ( 9 - (s[i] - '0') ) + '0';
+    cout << s;
 
 	return 0;
 }
