@@ -34,6 +34,5 @@ int main()
     if (answers.empty()) cout << -1;
     else cout << (answers.top() / 2);
 
-
 	return 0;
 }
