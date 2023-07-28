@@ -17,20 +17,30 @@ int main()
     
 	int n;
     cin >> n;
-    if ( n == 1 ) return cout << "YES", 0;
-    int arr[n];
+    vector<int> v;
 
-    for(int i = 0; i < n; i++) cin >> arr[i];
-
-    if ( n == 2 ) 
-    {
-        if (arr[0] == arr[1]) return cout << "NO", 0;
-        return cout << "YES", 0;
+    int x;
+    for(int i = 0; i < n; i++) {
+        cin >> x;
+        v.push_back(x);
     }
 
-    for(int i = 1; i < n - 1; i++) if (arr[i-1] == arr[i] && arr[i] == arr[i+1])
-        return cout << "NO", 0;
-    cout << "YES";
+    int c=1,mx=1;
+    sort(v.begin(),v.end());
+
+    for(int i = 0; i < n; i++) 
+    {
+        if ( v[i] == v[i+1] ) {
+            c++;
+            if (mx < c)
+                mx = c;
+        }
+        else c = 1;
+    }
+
+    if ( mx <= ( (n+1) / 2 ) )
+        cout << "YES" << el;
+    else cout << "NO" << el;
 
 	return 0;
 }
