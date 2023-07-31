@@ -30,6 +30,8 @@ int solve()
         }
     }
     cout << ans << el;
+
+    return 0;
 }
 
 int main() 
