@@ -16,12 +16,12 @@ int main()
     adhamet
     
     int n; cin >> n;
-    int arr[n], b[n];
+    int arr[n], vis[n];
     for(int i = 1; i <= n; i++) cin >> arr[i];
-    for(int i = 1,j; i <= n; i++) {
-        for(j=1; j<=n; j++) b[j]=0;
-        for(j=i; !b[j]; j=arr[j]) b[j]=1;
-        cout << j;
+    for(int i = 1; i <= n; i++) {
+        int j = i;
+        while(vis[j] != i) vis[j]=i,j=arr[j];
+        cout << j << " ";
     }
 
     return 0;
