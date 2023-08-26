@@ -7,6 +7,8 @@ using namespace std;
 #define intPair pair<int,int>
 #define llPair pair<ll,ll>
 #define ldPair pair<lld,lld>
+#define F first
+#define S second
 #define el '\n'
 
 int main() 
@@ -18,22 +20,13 @@ int main()
     
 	int n,s;
     cin >> n >> s;
-    vector<intPair> v(n);
+    pair<int,int> pr;
 
-    for(int i = 0; i < n; i++)
-        cin >> v[i].first >> v[i].second;
-
-    v.push_back({0,0});
-    sort(v.rbegin(),v.rend());
-    int a = s, cnt = 0, dly = 0;
-    for(int i = 0; i < n; i++)
-    {
-        dly += a - v[i].first;
-        a = v[i].first;
-        if ( v[i].second > dly )
-            dly = v[i].second;
+    for(int i = 0; i < n; i++) {
+        cin >> pr.F >> pr.S;
+        if ( pr.F + pr.S >= s ) s = pr.F + pr.S;
     }
-    cout << dly;
+    cout << s << el;
 
 	return 0;
 }
