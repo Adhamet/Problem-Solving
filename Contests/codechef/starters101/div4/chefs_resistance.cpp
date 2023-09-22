@@ -23,8 +23,14 @@ using vpll = vector<pll>;
 #define dbg(v)                                                                 \
 	cout << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << endl;
 
-int find_res(int l, int r) {
-	
+vector<int> vec;
+bool can(ll resistance, int strength) {
+	int n = (int)vec.size();
+	for(int i = 0; i < n; i++) {
+		if (vec[i] > resistance)
+			strength -= vec[i];
+	}
+	return (strength > 0);
 }
 
 int main()
@@ -36,10 +42,26 @@ int main()
 	int t;
 	cin >> t;
 	while(t--) {
-		int n, S;
-		cin >> n >> S;
-		int arr[n];
-		for()
+		int n,H;
+		cin >> n >> H;
+		vec.clear();
+		int temp;
+		for(int i = 0; i < n; i++) {
+			cin >> temp;
+			vec.push_back(temp);
+		}
+
+		ll l=0, r=1e11+1,mid,ans=0;
+		while(l <= r) {
+			mid = l + (r-l)/2;
+
+			if(!can(mid,H)) l = mid + 1;
+			else {
+				ans = mid;
+				r = mid - 1;
+			}
+		}
+		cout << ans << el;
 	}
 	
     return 0;
