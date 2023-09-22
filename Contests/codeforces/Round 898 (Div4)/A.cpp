@@ -23,24 +23,21 @@ using vpll = vector<pll>;
 #define dbg(v)                                                                 \
 	cout << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << endl;
 
-int find_res(int l, int r) {
-	
-}
-
 int main()
 {
     adhamet;
     // freopen("file.in", "r", stdin);
     // freopen("file.out", "w", stdout);
 	
-	int t;
-	cin >> t;
-	while(t--) {
-		int n, S;
-		cin >> n >> S;
-		int arr[n];
-		for()
+	int n;
+	cin >> n;
+	while(n--) {
+    	string s;
+	    cin >> s;
+	    if (s[0] == 'a' || s[1] == 'b' || s[2] == 'c')
+	    	cout << "YES\n";
+	    else cout << "NO\n";
 	}
-	
+		
     return 0;
 }

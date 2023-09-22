@@ -23,10 +23,6 @@ using vpll = vector<pll>;
 #define dbg(v)                                                                 \
 	cout << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << endl;
 
-int find_res(int l, int r) {
-	
-}
-
 int main()
 {
     adhamet;
@@ -36,10 +32,33 @@ int main()
 	int t;
 	cin >> t;
 	while(t--) {
-		int n, S;
-		cin >> n >> S;
-		int arr[n];
-		for()
+		char grid[11][11];
+		ll points = 0;
+		for(int i = 1; i < 11; i++)
+			for(int j = 1; j < 11; j++) {
+				cin >> grid[i][j];
+				if (grid[i][j] == 'X') {
+					if(i==1 || i==10 || j==1 || j==10)
+						points++;
+					else if(i > 1 && i < 10 && (i == 2 || i == 9))
+						points+=2;
+					else if(j > 1 && j < 10 && (j == 2 || j == 9))
+						points+=2;
+					else if(i > 2 && i < 9 && (i == 3 || i == 8))
+						points+=3;
+					else if(j > 2 && j < 9 && (j == 3 || j == 8))
+						points+=3;
+					else if(i > 3 && i < 8 && (i == 4 || i == 7))
+						points+=4;
+					else if(j > 3 && j < 8 && (j == 4 || j == 7))
+						points+=4;
+					else if(i > 4 && i < 7 && (i == 5 || i == 6))
+						points+=5;
+					else if(j > 4 && j < 7 && (j == 5 || j == 6))
+						points+=5;
+				}
+			}
+		cout << points << el;
 	}
 	
     return 0;
