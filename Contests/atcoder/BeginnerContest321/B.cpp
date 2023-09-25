@@ -31,37 +31,25 @@ int main()
 	
 	int n,goal;
 	cin >> n >> goal;
-	int arr[n-1],score=0;
-	for(int i = 0; i < n-1; i++) { 
-		cin >> arr[i];
-		score+=arr[i];
-	}
-	sort(arr,arr+(n-1));
-
-	if( n == 3 ) {
-		score -= arr[0];
-		if (score == goal) {
-			if (arr[0] == score) return cout << 0, 0;
-			else return cout << score, 0;
-		}
-		else if (score > goal) {
-			
-		}
+	vector<int> A(n-1);
+	for(int i = 0; i < n-1; i++)
+		cin >> A[i];	
+	vector<int> B(101,0);
+	for(int i = 0; i <= 100; i++) {
+		vector<int> TMP = A;
+		TMP.push_back(i);
+		sort(TMP.begin(),TMP.end());
+		for(int j = 0; j < n - 2; j++)
+			B[i] += TMP[j+1];
 	}
 
-	score -= (arr[0] + arr[n-2]);
-	if (score == goal) return cout << 0, 0;
-	else if (score > goal)
-		return cout << (arr[n-2] - (score - goal)), 0;
-	else if (score < goal) {
-		int ans = (goal - score);
-		if (ans <= 100) {
-			if (ans < arr[n-2])
-				return cout << ans, 0;
-			else if (ans == arr[n-2]) return cout << 0, 0;
+	if(B[100] < goal) cout << -1;
+	else {
+		for(int i = 0; i <= 100; i++) if (B[i] >= goal) {
+			cout << i;
+			break;
 		}
 	}
-	cout << -1;
-	
+
     return 0;
 }
