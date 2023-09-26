@@ -33,15 +33,16 @@ int main()
 	cin >> n;
 	map<int,int> mp;
 
-	int x, mx=0;
+	int x;
 	for(int i = 0; i<n; i++) {
 		cin >> x;
-		mx = max(mx,x);
 		mp[x]++;
 	}
-
-	if (mx > n) n += 1;
-	cout << n - (mp.size());
+	
+	int cnt = 0;
+	for(auto it : mp) if(it.first <= n)
+		cnt++;
+	cout << n - cnt << el;
 	
     return 0;
 }
