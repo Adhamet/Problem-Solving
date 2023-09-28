@@ -29,20 +29,31 @@ int main()
     // freopen("file.in", "r", stdin);
     // freopen("file.out", "w", stdout);
 	
-	vector<vi> v(3, vi(3));
-	for(int i = 0; i < 3; i++) for(int j = 0; j < 3; j++) {
-		cin >> v[i][j];
+	ll n,m;		cin >> n >> m;
+	vll arr(m);
+	for(int i = 0; i < m-1; i++)
+		cin >> arr[i];
+	sort(arr.begin(), arr.end());
+	ll mn = 0;
+	ll y = n;
+	while( n > 0 ) {
+		for(int i = 0; i < m-1; i++) {
+			ll x = arr[i];
+			while( x > 0 && n > 0 ) {
+				mn += x;
+				x--;
+				n--;
+			}
+		}
 	}
-
-	v[0][0] = (v[1][2] + v[2][1]) / 2;
-	v[1][1] = (v[0][2] + v[2][0]) / 2;
-	v[2][2] = (v[0][1] + v[1][0]) / 2;
-
-	for(int i = 0; i < 3; i++) {
-		for(int j = 0; j < 3; j++)
-			cout << v[i][j] << " ";
-		cout << el;
+	n = y;
+	ll mx = 0;
+	for(int i = 0; i < n-1; i++) {
+		sort(arr.begin(),arr.end());
+		mx += arr[m-1];
+		arr[m-1]--;
 	}
+	cout << mx << " " << mn << el;
 
     return 0;
 }
