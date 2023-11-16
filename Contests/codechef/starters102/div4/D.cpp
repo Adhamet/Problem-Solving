@@ -40,14 +40,14 @@ int main()
 		int i = n-1;
 		if (s[i] == s[i-2]|s[i-1]) {
 			while(i-=2 && i >= 1) {
-				if(s[i]==s[i-2]|s[i-1] || s[i]==s[i-2]&s[i-1] || s[i]==s[i-2]^s[i-1])
+				if(s[i]==s[i-2]|s[i-1]) || s[i]==s[i-2]&s[i-1] || s[i]==s[i-2]^s[i-1])
 					success++;
 				else {
 					break;
 				}
 			}
 		}
-
+		if (success == n/2) 
 
 		int success = 0;
 		int i = n-1;
