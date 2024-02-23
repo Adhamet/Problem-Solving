@@ -37,7 +37,7 @@ int main()
 		bool valid = false;
 		sort(arr, arr+5);
 		do {
-			if(solvable(0,0)) {
+			if(solvable(1,arr[0])) {
 				valid = true;
 				break;
 			}
