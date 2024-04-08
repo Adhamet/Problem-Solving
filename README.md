@@ -1,2 +1,2 @@
 # General-Problems
-A repository that discusses solutions to coding problems I met online, whether its from Online Programming Learning Platforms like LeetCode, Codeforces..etc.. or problems that I found on social-networking sites like Discord, Telegram..etc.. and it is also a preview of different ideas that I think might help widen the brain's perspective on various issues.
+A general repository about problem-solving, whether it's related to team-contests or my problem-solving college community MUST-CPC. Usually things that don't require a specific repository & are related to problem-solving one way or antoher would be put in here.
