@@ -1,3 +1,0 @@
-Whenever you are picking a base, the largest letter you have must be smaller than the base you have.
-
-so that I guarantee that no one hash has the vaulue of more than one number. 
