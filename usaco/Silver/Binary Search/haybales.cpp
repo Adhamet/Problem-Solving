@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,36 +14,31 @@ using pll = pair<ll, ll>;
 /*const int N = 20 + 5;*/
 /*const int oo = 1e9 + 20;*/
 
-int lastTrue(int l, int r, function<bool(int)> can) {
-	int ans = -1;
-
-	while (l <= r) {
-		int mid = l + (r - l) / 2;
-
-		if (can(mid)) ans = mid, l = mid + 1;
-		else r = mid - 1;
+void setIO(string name = "") {
+	if (name.size()) {
+		freopen((name+".in").c_str(), "r", stdin);
+		freopen((name+".out").c_str(), "w", stdout);
 	}
-
-	return ans;
 }
 
 int main() {
 	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 
-	int n, k;
-	cin >> n >> k;
+	setIO("haybales");
 
-	vector<int> a(n);
+	ll n, q;
+	cin >> n >> q;
+
+	vector<ll> a(n);
 	for (auto &i: a) cin >> i;
 	sort(a.begin(), a.end());
 
-	int val = lastTrue(1, 2e9, [&](int key) {
-		ll ops = 0;
-		for (int i = (n - 1) / 2; i < n; i++) ops += max(0, key - a[i]);
-		return ops <= k;
-	});
+	while (q--) {
+		ll l, r;
+		cin >> l >> r;
 
-	cout << val << el;
+		cout << upper_bound(begin(a), end(a), r) - lower_bound(begin(a), end(a), l) << el;
+	}
 
 	return 0;
 }
