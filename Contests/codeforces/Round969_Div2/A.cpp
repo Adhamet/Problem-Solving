@@ -20,16 +20,25 @@ int main() {
 	cin >> t;
 
 	while (t--) {
-		int n;
-		cin >> n;
+		int l, r;
+		cin >> l >> r;
+	
+		int odd = 0, even = 0;
+		while (l <= r) {
+			if (l % 2 == 1) odd += 1;
+			else even += 1;
 
-		vector<ll> a(n);
-		for (auto &i: a) cin >> i;
-		sort(a.begin(), a.end());
+			l += 1;
+		}
 
-		map<ll, int> mp;
-		for (int i = (n - 1) / 2; i < n; i++) mp[a[i]] += 1;
-		cout << mp[a[(n - 1) / 2]] << el;
+		int cnt = 0;
+		while (even) {
+			even -= 1;
+			odd -= 2;
+			cnt += 1;
+		}
+
+		cout << cnt << el;
 	}
 
 	return 0;
