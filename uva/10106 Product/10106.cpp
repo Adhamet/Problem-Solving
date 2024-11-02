@@ -1,48 +1,39 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-#define adhamet ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-#define ll long long
-#define lld long long double
-#define intPair pair<int,int>
-#define llPair pair<ll,ll>
-#define ldPair pair<lld,lld>
-#define F first
-#define S second
+
+#define dbg(v) cout << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << endl;
 #define el '\n'
-const int MXN = 501;
+#define MOD 1000000007
+using i64 = long long;
+using pi = pair<int, int>;
 
-void solve()
-{
-    string s1,s2;
-    while(cin >> s1)
-    {
-        cin >> s2;
-        reverse(s1.begin(), s1.end());
-        reverse(s2.begin(), s2.end());
-        int a[MXN];
-        memset(a, 0, sizeof(a));
-        for(int i = 0; i < s1.length(); i++) {
-            for(int j = 0; j < s2.length(); j++) {
-                a[i+j] += (s1[i] - '0') * (s2[j] - '0');
-            }
-        }
+int main() {
+	ios_base::sync_with_stdio(0), cin.tie(0);
 
-        for(int i = 0; i < MXN - 1; i++) {
-            a[i+1] += a[i] / 10;
-            a[i] %= 10;
-        }
-        int i = MXN - 1;
-        while( i > 0 && a[i] == 0 ) i--;
-        for(; i>=0; i--) cout << a[i];
-        cout << endl;
-    }
-}
+	string x, y;
+	while (cin >> x >> y) {
+		reverse(x.begin(), x.end());
+		reverse(y.begin(), y.end());
 
-int main()
-{
-    adhamet 
-    
-    solve();
-    return 0;
+		size_t n = x.size(), m = y.size();
+		vector<int> answer(n + m, 0);
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				int a = x[i] - '0';
+				int b = y[j] - '0';
+				answer[i + j] += a * b;
+
+				if (answer[i + j] >= 10) {
+					answer[i + j + 1] += (answer[i + j] / 10);
+					answer[i + j] %= 10;
+				}
+			}
+		}
+		
+		while (answer.size() > 1 && answer.back() == 0) answer.pop_back();
+		for (int i = answer.size() - 1; i >= 0; i--) cout << answer[i];
+		cout << el;
+	}
+
+	return 0;
 }
