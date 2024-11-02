@@ -1,29 +1,20 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-#define adhamet ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-#define ll long long
-#define lld long long double
-#define intPair pair<int,int>
-#define llPair pair<ll,ll>
-#define ldPair pair<lld,lld>
-#define F first
-#define S second
+
+#define dbg(v) cout << "Line(" << __LINE__ << ") -> " << #v << " = " << (v) << endl;
 #define el '\n'
+#define MOD 1000000007
+using i64 = long long;
+using pi = pair<int, int>;
 
-void solve(unsigned int t)
-{
-    unsigned int x = sqrt(t);
-    if (x*x == t) { cout << "yes\n"; }
-    else cout << "no\n";
-}
+int main() {
+	ios_base::sync_with_stdio(0), cin.tie(0);
 
-int main()
-{
-    adhamet 
+	unsigned int n;
+	while (cin >> n && n) {
+		unsigned int sqr = sqrt(n);
+		cout << (sqr * sqr == n? "yes\n": "no\n");
+	}
 
-    unsigned int T;
-    while(cin >> T && T != 0)
-        solve(T);
-    return 0;
+	return 0;
 }
