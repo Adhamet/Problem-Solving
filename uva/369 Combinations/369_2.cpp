@@ -12,7 +12,7 @@ ull gcd(int a, int b) {
 	return a;
 }
 
-ull nCr(vector<ll> nume, vector<ll> denome) {
+ull nCr(vector<ll>& nume, vector<ll>& denome) {
 	for (int i = 0; i < nume.size(); i++) {
 		for (int j = 0; j < denome.size(); j++) {
 			ll g = gcd(nume[i], denome[j]);
@@ -31,7 +31,7 @@ int main() {
 
 	ull n, r;
 	while (cin >> n >> r && n && r) {
-		vector<ll> numerator, denominator;
+		vector<ull> numerator, denominator;
 		for (ull i = 1; i <= n; i++) numerator.push_back(i);
 		for (ull i = 1; i <= n - r; i++) denominator.push_back(i);
 		for (ull i = 1; i <= r; i++) denominator.push_back(i);
