@@ -14,7 +14,7 @@ class DSU {
 			for (int i = 1; i < size; i++) pars[i] = i;
 		}
 
-		int find(int x) { return pars[x] == x? x: find(pars[x]); }
+		int find(int x) { return pars[x] == x? x: pars[x] = find(pars[x]); }
 		bool connected(int x, int y) { return find(x) == find(y); }
 		bool unite(int x, int y) {
 			int xRoot = find(x);
