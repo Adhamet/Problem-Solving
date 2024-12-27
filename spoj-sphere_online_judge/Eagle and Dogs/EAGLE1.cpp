@@ -36,7 +36,7 @@ signed main() {
         dfs(1, 0, dist1, vis);
         int a = max_element(dist1.begin() + 1, dist1.begin() + n + 1) - dist1.begin();
 
-		// calculate distances from both edges
+	// calculate distances from both edges
         fill(vis.begin(), vis.end(), false);
         dfs(a, 0, dist1, vis);
         int b = max_element(dist1.begin() + 1, dist1.begin() + n + 1) - dist1.begin();
