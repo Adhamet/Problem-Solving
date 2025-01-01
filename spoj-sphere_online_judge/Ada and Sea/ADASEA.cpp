@@ -36,7 +36,7 @@ signed main() {
             }
         }
 
-		int islands = 0;
+	int islands = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (adjmtx[i][j] == '#' && !vis[i][j]) {
