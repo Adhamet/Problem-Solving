@@ -50,7 +50,7 @@ signed main() {
         if (islands == 0) {
             cout << 0 << el;
         } else {
-			int cells = n * m;
+	    int cells = n * m;
             int gcd = __gcd(islands, cells);
             int numerator = islands / gcd;
             int denominator = cells / gcd;
