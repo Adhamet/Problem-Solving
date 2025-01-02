@@ -21,7 +21,7 @@ void dfs(int x, int y, vector<int>& subset) {
 		acc = true;
 		return;
 	};
-    if (find(subset.begin(), subset.end(), adjmtx[x][y]) == subset.end()) return;
+	if (find(subset.begin(), subset.end(), adjmtx[x][y]) == subset.end()) return;
 
 	vis[x][y] = true;
 	for (int i = 0; i < 4; i++) dfs(x + dx[i], y + dy[i], subset);
