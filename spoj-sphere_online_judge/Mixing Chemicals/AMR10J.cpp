@@ -7,16 +7,16 @@ using ull = unsigned long long;
 
 const int MAXN = 205;
 int n, k, nodes;
-vector<int> c(MAXN), _factorial(MAXN), colorWays(MAXN), group(MAXN);
+vector<int> c(MAXN), _factorial(MAXN), ways(MAXN), group(MAXN);
 void init() {
 	_factorial[0] = 1;
 	for (int i = 1; i <= n; ++i) {
 		_factorial[i] = _factorial[i - 1] * (k - 1) % MOD;
 	}
 
-	colorWays[1] = k, colorWays[2] = k * _factorial[1] % MOD;
+	ways[1] = k, ways[2] = k * _factorial[1] % MOD;
 	for (int i = 3; i <= n; ++i) {
-		colorWays[i] = (k * _factorial[i - 1] % MOD - colorWays[i - 1] + MOD) % MOD;
+		ways[i] = (k * _factorial[i - 1] % MOD - ways[i - 1] + MOD) % MOD;
 	}
 
 	for (int i = 1; i <= n; ++i) group[i] = 0;
@@ -57,7 +57,7 @@ signed main() {
 			nodes = 0;
 			group[i] -= 1;
 			dfs(i);
-			ans = ans * colorWays[nodes] % MOD;
+			ans = ans * ways[nodes] % MOD;
 		}
 
 		cout << ans << el;
