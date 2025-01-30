@@ -12,7 +12,6 @@ signed main() {
 	while (t--) {
 		int n, r, m;
 		cin >> n >> r >> m;
-		vector<int> covered(n + 1, -1);
 		vector<vector<int>> adj(n + 1);
 		for (int i = 0, u, v; i < r; ++i) {
 			cin >> u >> v;
