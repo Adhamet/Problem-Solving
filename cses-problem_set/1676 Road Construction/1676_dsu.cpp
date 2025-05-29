@@ -14,18 +14,17 @@ struct DSU {
  
 	int find(int x) { return par[x] == x? x: par[x] = find(par[x]); }
 	bool connected(int x, int y) { return find(x) == find(y); }
-	bool unite(int x, int y) {
+	void unite(int x, int y) {
 		int X = find(x);
 		int Y = find(y);
-		if (X == Y) return false;
-
-		if (sz[X] < sz[Y]) swap(X, Y);
-		sz[X] += sz[Y];
-		par[Y] = X;
-
-		compCnt -= 1;
-		mxSz = max(mxSz, sz[X]);
-		return true;
+		if (X != Y) {
+			if (sz[X] < sz[Y]) swap(X, Y);
+			sz[X] += sz[Y];
+			par[Y] = X;
+	
+			compCnt -= 1;
+			mxSz = max(mxSz, sz[X]);
+		}
 	}
  
 	int getCC() const { return compCnt; }
