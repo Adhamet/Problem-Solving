@@ -13,30 +13,30 @@ using ull = unsigned long long;
 
 int main()
 {
-    adhamet;
+	adhamet;
 
-    int t;	cin >> t;
-    while(t--) {
-    	int W,H;	
-    	cin >> W >> H;
+	int t;	cin >> t;
+	while(t--) {
+		int W,H;	
+		cin >> W >> H;
 
-    	int x1,y1,x2,y2;	cin >> x1 >> y1 >> x2 >> y2;
+		int x1,y1,x2,y2;	cin >> x1 >> y1 >> x2 >> y2;
 
-    	int w,h;	cin >> w >> h;
+		int w,h;	cin >> w >> h;
 
-    	int moves = 1e9;
-    	if (x2 - x1 + w <= W) {
-    		moves = min(moves, max(0, w-x1));
-    		moves = min(moves, max(0, x2 - (W-w)));
-    	}
-    	if (y2 - y1 + h <= H) {
-    		moves = min(moves, max(0, h-y1));
-    		moves = min(moves, max(0, y2 - (H-h))); // 4 - (17-4) = 4 - 12 = 
-    	}
+		int moves = 1e9;
+		if (x2 - x1 + w <= W) {
+			moves = min(moves, max(0, w-x1));
+			moves = min(moves, max(0, x2 - (W-w)));
+		}
+		if (y2 - y1 + h <= H) {
+			moves = min(moves, max(0, h-y1));
+			moves = min(moves, max(0, y2 - (H-h))); // 4 - (17-4) = 4 - 12 = 
+		}
 
-    	if (moves == 1e9) cout << -1 << el;
+		if (moves == 1e9) cout << -1 << el;
 		else cout << fixed << setprecision(9) << (double)moves << el;
-    }
-	
-    return 0;
+	}
+
+	return 0;
 }
