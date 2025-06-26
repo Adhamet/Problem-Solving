@@ -30,18 +30,17 @@ ll aoi_three(Rect a, Rect b, Rect c) {
 
 int main()
 {
-    adhamet;
+	adhamet;
 
-    Rect w,b1,b2;
+	Rect w,b1,b2;
 
-    cin >> w.x1 >> w.y1 >> w.x2 >> w.y2;
-    cin >> b1.x1 >> b1.y1 >> b1.x2 >> b1.y2;
-    cin >> b2.x1 >> b2.y1 >> b2.x2 >> b2.y2;
-	
-    if (w.area() - (aoi(w, b1) + aoi(w, b2)) + aoi_three(w, b1, b2))
-    	cout << "YES\n";
+	cin >> w.x1 >> w.y1 >> w.x2 >> w.y2;
+	cin >> b1.x1 >> b1.y1 >> b1.x2 >> b1.y2;
+	cin >> b2.x1 >> b2.y1 >> b2.x2 >> b2.y2;
+
+	if (w.area() - (aoi(w, b1) + aoi(w, b2)) + aoi_three(w, b1, b2))
+		cout << "YES\n";
 	else cout << "NO\n";
 
-
-    return 0;
+	return 0;
 }

@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <complex>
 #include <queue>
 using namespace std;
 
@@ -50,7 +49,7 @@ int main() {
 		int lastTime = 0;
 		priority_queue<int, vector<int>, greater<int>> pq;
 		for (int i = 0; i < n; i++) {
-            if (pq.size() == mid) lastTime = pq.top(), pq.pop();
+			if (pq.size() == mid) lastTime = pq.top(), pq.pop();
 			if (lastTime + dura[i] > tmax) return false;
 			pq.push(lastTime + dura[i]);
 		}

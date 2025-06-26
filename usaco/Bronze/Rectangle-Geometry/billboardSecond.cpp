@@ -35,26 +35,26 @@ Rect getIntersect(Rect rectOne, Rect rectTwo) {
 
 int main()
 {
-    adhamet;
-    setIO("billboard");
+	adhamet;
+	setIO("billboard");
 
-    Rect p,q;
-    cin >> p.x1 >> p.y1 >> p.x2 >> p.y2;
-    cin >> q.x1 >> q.y1 >> q.x2 >> q.y2;
+	Rect p,q;
+	cin >> p.x1 >> p.y1 >> p.x2 >> p.y2;
+	cin >> q.x1 >> q.y1 >> q.x2 >> q.y2;
 
-    Rect i = getIntersect(p,q);
+	Rect i = getIntersect(p,q);
 
-    if ( (i.x1 <= p.x1 && i.x2 >= p.x2) &&
-    		(i.y1 <= p.y1 && i.y2 >= p.y2)) {
-    	cout << 0;
-    }
-    else if ( (i.x1 <= p.x1 && i.x2 >= p.x2) ||
-    		(i.y1 <= p.y1 && i.y2 >= p.y2)) {
-    	cout << p.area() - i.area();
-    }
+	if ( (i.x1 <= p.x1 && i.x2 >= p.x2) &&
+			(i.y1 <= p.y1 && i.y2 >= p.y2)) {
+		cout << 0;
+	}
+	else if ( (i.x1 <= p.x1 && i.x2 >= p.x2) ||
+			(i.y1 <= p.y1 && i.y2 >= p.y2)) {
+		cout << p.area() - i.area();
+	}
 	else {
 		cout << p.area();
 	}
-	
-    return 0;
+
+	return 0;
 }
