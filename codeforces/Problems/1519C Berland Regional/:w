@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+#include <cstdio>
+using namespace std;
+#define i64 int64_t
+#define el '\n'
+
+int32_t main() {
+	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+
+	int tc;	cin >> tc;
+	while (tc--) {
+		int n;	cin >> n;
+		vector<int> uni(n);
+		vector<vector<int>> students;
+		for (int i = 0; i < n; ++i) cin >> uni[i];
+		for (int i = 0, x; i < n; ++i) {
+			cin >> x;
+			students[uni[i]].push_back(x);
+		}
+
+	}
+
+	return 0;
+}
