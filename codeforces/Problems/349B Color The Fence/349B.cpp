@@ -4,8 +4,8 @@ using namespace std;
 #define int i64
 #define el '\n'
 
-constexpr int MXN = 1e5+5;
-int mn = 1e9, v;
+constexpr int MXN = 1e6+5;
+int mn = 1e18, v;
 int a[10], mem[MXN];
 
 int solve(int x) {
@@ -39,8 +39,8 @@ int32_t main() {
 		mn = min(mn, a[i]);
 	}
 
-	for (int i = 1; i <= 9; ++i) {
-		if (a[i] >= mn) mem[i] = -1;
+	for (int i = 0; i <= v; ++i) {
+		if (i >= mn) mem[i] = -1;
 		else mem[i] = 0;
 	}
 
