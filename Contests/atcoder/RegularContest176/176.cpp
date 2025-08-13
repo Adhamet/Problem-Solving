@@ -20,7 +20,7 @@ bool solve(int row) {
 		return accepted;
 	}
 
-	if(sum[row]>=q) return false;
+	if(sumR[row]>=q) return false;
 
 	for(int col = 0; col < n; col++) {
 		if(matrix[row][col] || sumR[col]) continue;
@@ -37,7 +37,7 @@ bool solve(int row) {
 int main()
 {
 	scanf("%d %d", &n, &q);
-	
+
 	sumR.resize(n,0);
 	sumC.resize(n,0);
 	matrix.resize(n, vector<bool>(n,0));
@@ -56,5 +56,5 @@ int main()
 		}
 		cout << el;
 	}
-    return 0;
+	return 0;
 }
