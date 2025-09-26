@@ -1,0 +1,34 @@
+5
+RECURSIVE GO, show: 5
+end.
+show: 4
+RECURSIVE GO, show: 1
+end.
+end.
+show: 3
+RECURSIVE GO, show: 2
+end.
+show: 1
+end.
+end.
+show: 2
+RECURSIVE GO, show: 3
+end.
+show: 2
+end.
+show: 1
+end.
+end.
+show: 1
+RECURSIVE GO, show: 4
+end.
+show: 3
+end.
+show: 2
+end.
+show: 1
+end.
+end.
+16
+
+[Process exited 0]
