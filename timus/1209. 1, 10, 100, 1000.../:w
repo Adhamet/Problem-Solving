@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+using i64 = long long;
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	
+	i64 x = 1;
+	std::vector<i64> ones;
+	ones.push_back(x);
+	for (int i = 0; i < 1e6; ++i) {
+		x += 1;
+		ones.push_back(x);
+		x += (x * (x + 1) / 2);
+		if (x >= INT_MAX) break;
+	}
+	std::cout << "TEST: ";
+	for (auto o: ones) std::cout << o << ' ';
+	std::cout << '\n';
+
+	int t;	std::cin >> t;
+	while (t--) {
+		int k;	std::cin >> k;
+		int x = *lower_bound(ones.begin(), ones.end(), k);
+		if (x == k) std::cout << 1 << ' ';
+		else std::cout << 0 << ' ';
+	}
+	
+	return 0;
+}
