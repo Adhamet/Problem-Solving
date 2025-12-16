@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
 using i64 = long long;
 
-constexpr int MXN = 1e6+5;
+constexpr int MXN = 1e6+5; // for UVA problem change to 4e6+5.
 
 i64 phi[MXN];
 i64 gSum[MXN];
+i64 F[MXN];
 
 void precompute_phi() {
     for (int i = 0; i < MXN; i++) phi[i] = i;
@@ -17,11 +18,11 @@ void precompute_phi() {
 }
 
 void precompute_G() {
-    i64 F[MXN] = {0};
+    memset(F, 0, sizeof(F));
 
     for (int i = 1; i < MXN; i++)
         for (int j = i; j < MXN; j += i)
-            F[j] += i * phi[j/i];
+            F[j] += (i64)i * phi[j/i];
 
     gSum[0] = 0; gSum[1] = 0;
     for (int n = 2; n < MXN; n++)
@@ -41,4 +42,3 @@ int main() {
 
     return 0;
 }
-
