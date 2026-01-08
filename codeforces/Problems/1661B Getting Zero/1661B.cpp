@@ -1,37 +1,44 @@
 #include <bits/stdc++.h>
-using namespace std;
 
-#define el '\n'
-#define ll long long
+#ifdef LOCAL
+    #include "debug.h"
+#else
+    #define debug(...) 42
+#endif
+
+using i64 = long long;
+using u32 = unsigned int;
+using u64 = unsigned long long;
+#define MSB(x) (1LL << (63 - __builtin_clzll(x)))
+#define MSB_IDX(x) (63 - __builtin_clzll(x))
+#define LSB(x) ((x) & -(x))
+#define LSB_IDX(x) (__builtin_ctzll(x))
+#define DROP_LSB(x) ((x) & ((x) - 1))
+#define IS_POW2(x) ((x) && !((x) & ((x) - 1)))
+#define CLZ(x) (__builtin_clzll(x))   // undefined if x == 0
+#define CTZ(x) (__builtin_ctzll(x))   // undefined if x == 0
 
 int main() {
-	ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
 
-	int n;
-	cin >> n;
+    int n;  std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        int x;  std::cin >> x;
+        if (x == 0) {
+            std::cout << 0 << ' ';
+            continue;
+        }
 
-	const int target = 32768;
-	for (int i = 0; i < n; i++) {
-		int x, ans = 100000;
-		cin >> x;
+        int ans = 20;
+        for (int k = 0; k <= 15; k++) {
+            int xx = x + k;
+            int lsb = LSB_IDX(xx);
+            ans = std::min(ans, 15 - lsb + k);
+        }
 
-		for (int add = 0; add <= 15; add++) {
-			int mn = 16;
-			
-			for (int mul = 0; mul <= 15; mul++) {
-				int val = (x + add) << mul;
-				
-				if ((val % target) == 0) {
-					mn = mul + add;
-					break;
-				}
-			}
+        std::cout << ans << ' ';
+    }
 
-			ans = min(ans, mn);
-		}
-
-		cout << ans << " ";
-	}
-
-	return 0;
+    return 0;
 }
