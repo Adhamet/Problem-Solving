@@ -60,20 +60,23 @@ int main() {
             int type;   std::cin >> type;
             if (type == 1) {
                 int i, x;  std::cin >> i >> x;
-                st.update(1, 0, n-1, i, x);
+                st.a[i-1] = x;
+                st.update(1, 0, n-1, i-1, x);
             } else {
-                int l, r, ans = 0;   std::cin >> l >> r;
+                int l, r;   std::cin >> l >> r;
                 l--,r--;
 
-                while (l <= r) {
-                    int md = (l + r) >> 1;
+                int ll = l, rr = r, ans = -1;
+                while (ll <= rr) {
+                    int md = (ll + rr) >> 1;
                     int curMn = st.query(1, 0, n-1, l, md);
-                    if (curMn == mn) ans = md, r = md - 1;
-                    break;
+                    if (curMn <= md - l) ans = md, rr = md - 1;
+                    else ll = md + 1;
                 }
 
-                debug(mn, ans+1);
-                if (ans+1 == mn) std::cout << 1 << '\n';
+                // debug(l,mn,l+mn);
+                // debug(ans);
+                if (st.query(1, 0, n-1, l, ans) == ans - l) std::cout << 1 << '\n';
                 else std::cout << 0 << '\n';
             }
         }
